@@ -1,0 +1,50 @@
+{# templates/cadastroPessoas/alterar_pessoa.html.twig #}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ asset('vendor/bootstrap.min.css') }}">
+    <script src="{{ asset('vendor/bootstrap.bundle.min.js') }}"></script>
+    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+    <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
+    <title>Alterar Pessoa</title>
+</head>
+<body class="bg-light">
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title text-center mb-4">Alterar Pessoa</h3>
+
+                        {{ form_start(form) }}
+                        <div class="form-group">
+                            {{ form_row(form.nome, {'attr': {'class': 'form-control mb-3'}}) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_row(form.tipoPessoa, {'attr': {'class': 'form-control mb-3'}}) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_row(form.documento, {'attr': {'class': 'form-control mb-3'}}) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_row(form.dataNascimento, {'attr': {'class': 'form-control mb-3'}}) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_row(form.password, {'attr': {'class': 'form-control mb-3'}}) }}
+                        </div>
+                        <div class="row justify-content-center">
+                            <button type="submit" class="btn btn-primary mr-2">Salvar Alterações</button>
+                            <a href="{{ path('lista_registros') }}" class="btn btn-secondary ml-2">Voltar para Lista de Registros</a>
+                        </div>
+                        {{ form_end(form) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

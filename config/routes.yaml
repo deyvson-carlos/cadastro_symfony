@@ -1,0 +1,26 @@
+# config/routes.yaml
+
+cadastro:
+    path: /cadastro
+    controller: 'App\Controller\CadastroController::index'
+    methods: ['GET', 'POST']
+
+lista_registros:
+    path: '/lista-registros'
+    controller: 'App\Controller\CadastroController::listaRegistros'
+    methods: ['GET']
+
+delete_confirmation:
+    path: '/cadastro/deletePessoa/{id}/confirmacao'
+    controller: 'App\Controller\CadastroController::deleteConfirmation'
+    methods: ['GET']
+
+delete_pessoa:
+    path: '/cadastro/deletePessoa/{id}'
+    controller: 'App\Controller\CadastroController::deletePessoa'
+    methods: ['DELETE', 'POST', 'GET']
+
+alterarPessoa:
+    path: '/api/alterar/{id}'
+    controller: 'App\Controller\CadastroController::alterarPessoa'
+    methods: ['GET', 'POST']

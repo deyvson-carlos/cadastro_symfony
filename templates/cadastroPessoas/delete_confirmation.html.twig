@@ -1,0 +1,26 @@
+{# templates/cadastroPessoas/delete_confirmation.html.twig #}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ asset('vendor/bootstrap.min.css') }}">
+    <script src="{{ asset('vendor/bootstrap.bundle.min.js') }}"></script>
+    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+    <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
+    <title>Confirmação de Exclusão</title>
+</head>
+<body class="bg-light">
+
+    <div class="container mt-5 text-center">
+        <h1 class="mt-5">Confirmação de Exclusão</h1>
+        <p>Você tem certeza de que deseja excluir a pessoa: {{ pessoa.nome }}?</p>
+
+        {{ form_start(form) }}
+        <div class="row justify-content-center mt-4">
+            <div class="col-md-6">
+                <a href="{{ path('app_cadastro') }}" class="btn btn-primary">Cancelar</a>
+            </div>
+        </div>
+        {{ form_end(form) }}
+    </div>
+</body>
+</html>

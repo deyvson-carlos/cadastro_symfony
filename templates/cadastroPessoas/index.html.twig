@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+    <link rel="stylesheet" href="{{ asset('vendor/bootstrap.min.css') }}">
+    <script src="{{ asset('vendor/bootstrap.bundle.min.js') }}"></script>
+    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+    <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
+    <title>Cadastro de Pessoas</title>
+</head>
+<body class="bg-light">
+
+    <div class="container mt-5">
+        {% if app.session.flashbag.has('success') %}
+            <div class="alert alert-success">
+                {{ app.session.flashbag.get('success')[0] }}
+            </div>
+        {% endif %}
+
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title text-center">Cadastro de Pessoas</h3>
+                        {{ form_start(form) }}
+                        <div class="form-group mb-4">
+                            {{ form_row(form.nome, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+                        <div class="form-group mb-4">
+                            {{ form_row(form.tipoPessoa, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+                        <div class="form-group mb-4">
+                            {{ form_row(form.documento, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+                        <div class="form-group mb-4">
+                            {{ form_row(form.dataNascimento, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+                        <div class="form-group mb-4">
+                            {{ form_row(form.password, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+                        <hr style="border-color: blue; margin: 20px 0;">
+                        <div class="text-center mt-3">
+                            <button type="submit" class="btn btn-primary">Salvar</button>
+                            <a href="{{ path('lista_registros') }}" class="btn btn-secondary">Listar Registros</a>
+                        </div>
+                        {{ form_end(form) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% if app.session.flashbag.has('success') %}
+    <div class="alert alert-success">
+        {{ app.session.flashbag.get('success')[0] }}
+    </div>
+{% endif %}
+
+    <script>
+    $(document).ready(function() {
+        function applyMask() {
+            var tipoPessoa = $('#seu_formulario_tipoPessoa').val();
+            var documentoField = $('#seu_formulario_documento');
+
+            documentoField.val('');
+
+            documentoField.unmask();
+
+            if (tipoPessoa === 'Fisica') {
+                documentoField.mask('000.000.000-00', { reverse: true });
+            } else if (tipoPessoa === 'Juridica') {
+                documentoField.mask('00.000.000/0000-00', { reverse: true });
+            }
+        }
+
+        $('#seu_formulario_tipoPessoa').change(function() {
+            applyMask();
+        });
+
+        applyMask();
+    });
+</script>
+
+</body>
+</html>

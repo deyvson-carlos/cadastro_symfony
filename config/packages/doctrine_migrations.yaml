@@ -1,0 +1,15 @@
+doctrine_migrations:
+  migrations_paths:
+    "DoctrineMigrations": "%kernel.project_dir%/migrations"
+  enable_profiler: false
+
+# criando conexão com o banco PhpMyAdimin
+doctrine:
+  dbal:
+    driver: 'pdo_mysql'
+    host: 'localhost'
+    port: '3306'
+    dbname: 'api_crud'
+    user: 'root'
+    password: ''
+    charset: 'utf8mb4'
